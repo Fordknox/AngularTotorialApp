@@ -38,7 +38,7 @@ services:
     depends_on:
       - backend
     volumes:
-      - C:\Projects\AngularTotorialApp:/usr/src/app  # Mount local frontend directory
+      - C:\Projects\AngularTotorialApp/dist:/usr/share/nginx/html  # Mount dist directory to Nginx
     environment:
       - API_URL=http://localhost:3000/api  # Set the API URL to point to the backend
 
