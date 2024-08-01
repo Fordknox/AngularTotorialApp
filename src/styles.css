@@ -137,6 +137,58 @@ app-top-bar h1 {
   background-color: #EEEEEE;
 }
 
+/* styles.css */
+
+/* Example styles for the navigation bar */
+.navbar {
+  position: relative; /* Ensure it is positioned */
+  z-index: 3; /* Higher z-index than the faded background */
+  background-color: white; /* Optional: Background color for visibility */
+  padding: 10px; /* Optional: Padding for aesthetics */
+}
+
+/* Ensure html and body take full height */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative; /* Required for positioning the pseudo-element */
+}
+
+/* Common background styles */
+body {
+  background-image: url('/assets/background.jpg');
+  background-size: cover; /* Cover the entire area */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  transition: background-image 0.5s ease-in-out; /* Smooth transition for background */
+}
+
+/* Faded background for all pages except home */
+body.faded-background::before {
+  content: '';
+  position: absolute; /* Position it absolutely */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Faded black overlay */
+  z-index: 1; /* Ensure it sits behind the content */
+  transition: opacity 0.5s ease; /* Smooth transition for overlay */
+}
+
+/* Clear background for home page */
+body.home-background::before {
+  display: none; /* Hide the overlay on the home page */
+}
+
+/* Ensure content is above the background */
+.content {
+  position: relative; /* Position content above the background */
+  z-index: 2; /* Ensure content is above the faded background */
+}
+
+
 
 /*
 Copyright Google LLC. All Rights Reserved.

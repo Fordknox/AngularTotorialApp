@@ -11,6 +11,9 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { CartComponent } from './cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ShippingComponent } from './shipping/shipping.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from "./navbar/navbar.component";
 
 @NgModule({
   imports: [
@@ -18,12 +21,14 @@ import { ShippingComponent } from './shipping/shipping.component';
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', component: ProductListComponent },
-      { path: 'products/:productId', component: ProductDetailsComponent},
-      { path: 'cart', component: CartComponent},
-      { path: 'shipping', component: ShippingComponent },
-    ])
-  ],
+        { path: '', component: ProductListComponent },
+        { path: 'products/:productId', component: ProductDetailsComponent },
+        { path: 'cart', component: CartComponent },
+        { path: 'shipping', component: ShippingComponent },
+    ]),
+    AppRoutingModule,
+    NavbarComponent
+],
   declarations: [
     AppComponent,
     TopBarComponent,
@@ -32,6 +37,8 @@ import { ShippingComponent } from './shipping/shipping.component';
     ProductDetailsComponent,
     CartComponent,
     ShippingComponent,
+    HomeComponent,
+   
   ],
   bootstrap: [
     AppComponent
