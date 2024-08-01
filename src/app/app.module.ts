@@ -9,18 +9,19 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ShippingComponent } from './shipping/shipping.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from "./navbar/navbar.component";
 import { allIcons } from 'angular-feather/icons';
 import { FeatherModule } from 'angular-feather';
+import { CustomCurrencyModule } from '../custom-currency.module';
 
 @NgModule({
   imports: [
     BrowserModule,
-    HttpClientModule,
+    CustomCurrencyModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
         { path: '', component: ProductListComponent },
@@ -43,6 +44,9 @@ import { FeatherModule } from 'angular-feather';
     HomeComponent,
     NavbarComponent,
    
+  ],
+  providers: [
+    provideHttpClient(withInterceptorsFromDi())
   ],
   bootstrap: [
     AppComponent

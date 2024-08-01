@@ -1,8 +1,8 @@
 <h2>Products</h2>
 
 <li *ngFor="let product of products">
-    {{ product.name }} - {{ product.price | currency }}
-  </li>
+  {{ product.name }} - {{ product.price | customCurrency }}
+</li>
 
 <!-- 
 Copyright Google LLC. All Rights Reserved.
