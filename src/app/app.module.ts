@@ -14,6 +14,8 @@ import { ShippingComponent } from './shipping/shipping.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from "./navbar/navbar.component";
+import { allIcons } from 'angular-feather/icons';
+import { FeatherModule } from 'angular-feather';
 
 @NgModule({
   imports: [
@@ -27,7 +29,8 @@ import { NavbarComponent } from "./navbar/navbar.component";
         { path: 'shipping', component: ShippingComponent },
     ]),
     AppRoutingModule,
-    NavbarComponent
+    FeatherModule.pick(allIcons),
+
 ],
   declarations: [
     AppComponent,
@@ -38,6 +41,7 @@ import { NavbarComponent } from "./navbar/navbar.component";
     CartComponent,
     ShippingComponent,
     HomeComponent,
+    NavbarComponent,
    
   ],
   bootstrap: [

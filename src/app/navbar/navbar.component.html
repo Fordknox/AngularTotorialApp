@@ -27,6 +27,14 @@
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
           </li>
         </ul>
+        <div class="weather-widget" *ngIf="weather">
+          <p>{{ weather.name }}: {{ weather.main.temp }}°C</p>
+          <p>{{ weather.weather[0].description }}
+          <i-feather *ngIf="weatherCondition === 'rain'" name="cloud-rain"></i-feather>
+          <i-feather *ngIf="weatherCondition === 'clear sky'" name="sun"></i-feather>
+        </p>
+        </div>
+        <i data-feather="circle"></i>
         <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <a href="/cart" class="button fancy-button"><em class="material-icons">shopping_cart</em>Checkout</a>
