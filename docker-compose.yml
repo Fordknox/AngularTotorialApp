@@ -8,6 +8,12 @@ services:
       - "27017:27017"
     volumes:
       - mongodb_data:/data/db
+    # Remove the healthcheck section
+    # healthcheck:
+    #   test: ["CMD", "mongo", "--eval", "db.adminCommand('ping')"] 
+    #   interval: 30s
+    #   timeout: 10s
+    #   retries: 5
 
   backend:
     build:
@@ -16,9 +22,12 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - mongodb
+      mongodb:
+        condition: service_started  # Wait for MongoDB to start
     volumes:
       - C:\Projects\AngularTotorialAppBackend:/usr/src/app  # Mount local backend directory
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/myAngularApp  # Use the service name for MongoDB
 
   frontend:
     build:
@@ -30,6 +39,8 @@ services:
       - backend
     volumes:
       - C:\Projects\AngularTotorialApp:/usr/src/app  # Mount local frontend directory
+    environment:
+      - API_URL=http://localhost:3000/api  # Set the API URL to point to the backend
 
 volumes:
   mongodb_data:
