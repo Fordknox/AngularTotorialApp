@@ -9,11 +9,11 @@ services:
     volumes:
       - mongodb_data:/data/db
     # Remove the healthcheck section
-    # healthcheck:
-    #   test: ["CMD", "mongo", "--eval", "db.adminCommand('ping')"] 
-    #   interval: 30s
-    #   timeout: 10s
-    #   retries: 5
+    healthcheck:
+      test: ["CMD", "mongo", "--eval", "db.adminCommand('ping')"] 
+      interval: 30s
+      timeout: 10s
+      retries: 5
 
   backend:
     build:
