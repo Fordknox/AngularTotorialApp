@@ -1,1 +1,32 @@
-node_modules
+# Ignore node_modules directory (Node.js dependencies)
+node_modules/
+.angular/
+
+# Ignore build output directories
+dist/
+build/
+
+# Ignore logs
+*.log
+logs/
+npm-debug.log*
+
+# Ignore operating system-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE-specific files (example for IntelliJ IDEA)
+.idea/
+*.iml
+
+# Ignore specific cache files or directories
+.cache/
+.cache/*
+*.cache
+*.bak
+*.swp
+*.swo
+
+# Ignore environment variable files
+.env
+.env.local

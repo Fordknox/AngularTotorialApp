@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+  backend:
+    build:
+      context: C:\Projects\AngularTotorialAppBackend  # Path to your Express backend
+    container_name: express-backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongodb
+    volumes:
+      - C:\Projects\AngularTotorialAppBackend:/usr/src/app  # Mount local backend directory
+
+  frontend:
+    build:
+      context: C:\Projects\AngularTotorialApp  # Path to your Angular frontend
+    container_name: angular-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    volumes:
+      - C:\Projects\AngularTotorialApp:/usr/src/app  # Mount local frontend directory
+
+volumes:
+  mongodb_data:
