@@ -30,3 +30,7 @@ Thumbs.db
 # Ignore environment variable files
 .env
 .env.local
+*.env
+src/environments/environment.ts
+src/environments/environment.prod.ts
+
