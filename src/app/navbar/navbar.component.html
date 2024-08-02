@@ -30,7 +30,8 @@
         <div class="weather-widget" *ngIf="weather">
           <p style="margin-bottom: unset;">{{ weather.name }}: {{ weather.main.temp }}°C : {{ weather.weather[0].description }}
           <i-feather *ngIf="weatherCondition === 'rain'" name="cloud-rain"></i-feather>
-          <i-feather *ngIf="weatherCondition === 'clear sky'" name="sun"></i-feather>
+          <i-feather *ngIf="weatherCondition === 'clear sky with sun'" name="sun"></i-feather>
+          <i-feather *ngIf="weatherCondition === 'clear sky with moon'" name="moon"></i-feather>
         </p>
         </div>
         <i data-feather="circle"></i>

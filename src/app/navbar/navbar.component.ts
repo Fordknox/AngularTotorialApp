@@ -48,10 +48,18 @@ export class NavbarComponent implements OnInit {
 
   setWeatherCondition() {
     const condition = this.weather.weather[0].main.toLowerCase();
+    const currentTime = new Date().getTime();
+    const sunriseTime = new Date(this.weather.sys.sunrise * 1000).getTime();
+    const sunsetTime = new Date(this.weather.sys.sunset * 1000).getTime();
+  
     if (condition === 'rain') {
       this.weatherCondition = 'rain';
     } else if (condition === 'clear') {
-      this.weatherCondition = 'clear sky';
+      if (currentTime >= sunriseTime && currentTime <= sunsetTime) {
+        this.weatherCondition = 'clear sky with sun';
+      } else {
+        this.weatherCondition = 'clear sky with moon';
+      }
     } else {
       this.weatherCondition = 'cloud'; // Default condition
     }
